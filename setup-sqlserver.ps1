@@ -35,7 +35,7 @@ If (-Not (Get-Service | ? Name -Eq "MSSQLSERVER")) {
   #   The password of the sa account is specified.
   #   SQL Server will be listening on TCP port 1433.
   #
-  Start-Process "$sqlserver_exe_local" "/q /action=install /features=SQLEngine /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=Administrators /IACCEPTSQLSERVERLICENSETERMS" -Wait
+  Start-Process "$sqlserver_exe_local" "/q /action=install /features=SQLEngine,Tools /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=Administrators /IACCEPTSQLSERVERLICENSETERMS" -Wait
 }
 
 # In case we just installed SQL Server and the environment variables haven't been refreshed, manually
